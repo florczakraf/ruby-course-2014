@@ -19,23 +19,17 @@ class ArticleManager
   
   def worst_article
     check_size
-    aux = @articles[0]
-    @articles.each { |art| aux = art if art.positive_votes < aux.positive_votes }
-    aux
+    worst_articles.first
   end
   
   def best_article
     check_size
-    aux = @articles[0]
-    @articles.each { |art| aux = art if art.positive_votes > aux.positive_votes }
-    aux
+    best_articles.first
   end
   
   def most_popular_article
     check_size
-    aux = @articles[0]
-    @articles.each { |art| aux = art if art.votes > aux.votes }
-    aux
+    @articles.max { |art| art.votes }
   end
   
   def include?(pattern)
@@ -69,5 +63,4 @@ class ArticleManager
   def check_size
     raise if @articles.size == 0
   end
-  
 end
