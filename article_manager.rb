@@ -1,4 +1,5 @@
 require_relative 'article'
+require_relative 'article_filesystem'
 
 class ArticleManager
   attr_accessor :articles
@@ -49,6 +50,10 @@ class ArticleManager
   def votes
     check_size
     @articles.inject(0) { |acc, art| acc + art.votes }
+  end
+  
+  def load_articles(directory)
+    Dir[directory + '/*'].each { |file| @articles.push(ArticleFilesystem.read_from_file(file)) }
   end
   
   def to_s
