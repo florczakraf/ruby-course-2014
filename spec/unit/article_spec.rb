@@ -1,6 +1,6 @@
 require_relative "../../article"
 
-class TestArticle < Test::Unit::TestCase
+class ArticleSpec < Test::Unit::TestCase
   def setup
     @article = Article.new("Title", "Content Content", "Author")
   end
