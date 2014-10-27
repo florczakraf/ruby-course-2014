@@ -29,7 +29,7 @@ class ArticleManager
   
   def most_popular_article
     check_size
-    @articles.max { |art| art.votes }
+    @articles.max_by { |art| art.votes }
   end
   
   def include?(pattern)
