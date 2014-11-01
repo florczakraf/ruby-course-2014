@@ -7,8 +7,9 @@ class ArticleFilesystem
     name = article.title.downcase.split.join('_')
     
     File.open(ARTICLES_FOLDER + name, 'w') do |file|
-      file.write(article.author + "|" + article.title + "|" + article.content)
-      file.write("|" + article.likes.to_s + "|" << article.dislikes.to_s)
+      to_write = "#{article.author}|#{article.title}|#{article.content}|" \
+                 "#{article.likes.to_s}|#{article.dislikes.to_s}"
+      file.write(to_write)
     end
   end
   
