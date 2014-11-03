@@ -8,7 +8,7 @@ class ArticleFilesystem
     
     File.open(ARTICLES_FOLDER + name, 'w') do |file|
       to_write = "#{article.author}|#{article.title}|#{article.content}|" \
-                 "#{article.likes.to_s}|#{article.dislikes.to_s}"
+                 "#{article.likes}|#{article.dislikes}"
       file.write(to_write)
     end
   end
