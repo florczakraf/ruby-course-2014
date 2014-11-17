@@ -1,6 +1,6 @@
 require_relative "../../mock_article"
 
-class MockArticleSpec < Test::Unit::TestCase
+class MockArticleSpec < MiniTest::Test
   def setup
     @article = MockArticle.new
   end

@@ -1,7 +1,7 @@
 require_relative "../../article"
 require 'date'
 
-class ArticleSpec < Test::Unit::TestCase
+class ArticleSpec < MiniTest::Test
   def setup
     @article = Article.new("Title", "Content Content", "Author")
   end
