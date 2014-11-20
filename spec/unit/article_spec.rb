@@ -1,6 +1,7 @@
 require_relative "../../article"
+require 'date'
 
-class ArticleSpec < Test::Unit::TestCase
+class ArticleSpec < MiniTest::Test
   def setup
     @article = Article.new("Title", "Content Content", "Author")
   end
@@ -49,6 +50,11 @@ class ArticleSpec < Test::Unit::TestCase
   
   def test_distinct_words
     assert_equal(["Content"], @article.distinct_words) 
+  end
+  
+  def test_created_stamp
+    created_stamp = @article.created_at.stamp("Sunday, May 1, 2000")
+    assert_equal(created_stamp, @article.created_stamp)
   end
   
   def test_to_s

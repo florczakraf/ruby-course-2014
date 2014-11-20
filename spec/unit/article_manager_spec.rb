@@ -1,6 +1,6 @@
 require_relative "../../article_manager"
 
-class ArticleManagerSpec < Test::Unit::TestCase
+class ArticleManagerSpec < MiniTest::Test
   def setup
     @art1 = Article.new("Title1", "Content1", "Author1")
     @art2 = Article.new("Title2", "Content2", "Author1")
