@@ -1,10 +1,11 @@
+require 'stamp'
+
 class Article
   attr_reader :title, :content, :author, :likes, :dislikes, :created_at
   
-  def initialize(title, content, author = '')
-    @title, @content, @author = title, content, author
+  def initialize(title, content, author = '', created_at = Time.now)
+    @title, @content, @author, @created_at = title, content, author, created_at
     @dislikes = @likes = 0
-    @created_at = Time.now
   end
 
   def like!
@@ -38,6 +39,10 @@ class Article
 
   def distinct_words
     words.uniq!
+  end
+  
+  def created_stamp
+    @created_at.format_like("Sunday, May 1, 2000")
   end
   
   def to_s
