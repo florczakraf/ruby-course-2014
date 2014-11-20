@@ -56,6 +56,10 @@ class ArticleManager
     Dir[directory + '/*'].each { |file| @articles.push(ArticleFilesystem.read_from_file(file)) }
   end
   
+  def save_articles
+    @articles.each { |art| ArticleFilesystem.write_to_file(art) }
+  end
+  
   def to_s
     check_size
     aux = "All articles:\n"

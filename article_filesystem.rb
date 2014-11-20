@@ -4,7 +4,7 @@ class ArticleFilesystem
   ARTICLES_FOLDER = "articles/"
   
   def self.write_to_file(article)
-    name = article.title.downcase.split.join('_')
+    name = article.title.downcase.split.join('_').gsub(/\W/, '')
     
     File.open(ARTICLES_FOLDER + name, 'w') do |file|
       to_write = "#{article.author}|#{article.title}|#{article.content}|" \
